@@ -1,0 +1,65 @@
+<%- include('../partials/header.ejs') %>
+    <%- include('../partials/navbar.ejs') %>
+        <!--  BEGIN MAIN CONTAINER  -->
+        <div class="main-container" id="container">
+            <div class="overlay"></div>
+            <div class="search-overlay"></div>
+            <%- include('../partials/menu.ejs') %>
+                <!--  BEGIN CONTENT AREA  -->
+                <div id="content" class="main-content">
+                    <div class="layout-px-spacing">
+                        <!-- CONTENT AREA -->
+
+                        <div class="row layout-top-spacing">
+
+                            <div class="col-md-6">
+                                <%- include('../partials/messege.ejs') %>
+                            </div>
+
+                            
+                            <div class="col-xl-12 col-lg-12 col-md-12 layout-spacing">
+                                <form  class="section contact" action="/user/update" method="post">
+                                    <div class="info">
+                                        <h5 class="">Informação do usuario</h5>
+                                        <div class="row">
+                                            <input type="hidden" name="id" value="<%= dados_user[0].id %> ">
+                                            <div class="col-md-11 mx-auto">
+                                                <div class="row">                                                    
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="address">Nome</label>
+                                                            <input type="text" class="form-control mb-4" placeholder="Email" value="<%= dados_user[0].name %> "  name="name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="location">Telefone</label>
+                                                            <input type="text" class="form-control mb-4" value="<%= dados_user[0].telephone %> "  placeholder="Telefone" name="telephone">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="phone">Senha</label>
+                                                            <input type="password" class="form-control mb-4"  placeholder="Senha" value=""  name="password">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="email">Email</label>
+                                                            <input type="email" class="form-control mb-4"  placeholder="Email" value="<%= dados_user[0].email %> "  name="email">
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" name="time"
+                                                    class="btn btn-primary">Atualizar</button>
+                                                </div>
+                                            </div>                                           
+                                        </div>
+                                    </div>                                   
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <%- include('../partials/footer.ejs') %>

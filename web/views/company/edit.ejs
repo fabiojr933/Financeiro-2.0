@@ -1,0 +1,69 @@
+<%- include('../partials/header.ejs') %>
+    <%- include('../partials/navbar.ejs') %>
+        <!--  BEGIN MAIN CONTAINER  -->
+        <div class="main-container" id="container">
+            <div class="overlay"></div>
+            <div class="search-overlay"></div>
+            <%- include('../partials/menu.ejs') %>
+                <!--  BEGIN CONTENT AREA  -->
+                <div id="content" class="main-content">
+                    <div class="layout-px-spacing">
+                        <!-- CONTENT AREA -->
+
+                        <div class="row layout-top-spacing">
+                            
+
+
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                                <div class="widget widget-content-area br-4">
+                                    <div class="widget-one"><br>
+                                        <div class="card-body">
+                                            <div class="card-body">
+                                                <div class="form-group row">
+                                                    <div class="col-sm-10">
+                                                        <h5>Editar empresa</h5>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <a href="/company/index" type="submit"
+                                                            class="btn waves-effect waves-light btn-primary btn-square">Voltar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <form action="/company/update" method="post">
+                                                <input type=""text name="id" hidden value="<%= dados[0].id %> ">
+                                                <div class="row mb-4">
+                                                    <div class="col">
+                                                        <label for="">Empresa</label>
+                                                        <input type="text" class="form-control" name="name" required
+                                                            placeholder="Nome" value="<%= dados[0].name %> ">
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="">Endereço</label>
+                                                        <input type="text" class="form-control" name="address" required
+                                                            placeholder="Endreço"  value="<%= dados[0].address %> ">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-4">
+                                                    <div class="col">
+                                                        <label for="">Cnpj</label>
+                                                        <input type="text" class="form-control" name="cnpj" required
+                                                            placeholder="Cnpj"  value="<%= dados[0].cnpj %> ">
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="">Telefone</label>
+                                                        <input type="text" class="form-control" name="telephone" 
+                                                            placeholder="Telefone"  value="<%= dados[0].telephone %> ">
+                                                    </div>
+                                                </div>
+                                                <button type="submit" name="time" class="btn btn-primary">Salvar</button>
+                                            </form>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <%- include('../partials/footer.ejs') %>

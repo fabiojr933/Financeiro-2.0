@@ -1,0 +1,82 @@
+<%- include('../partials/header.ejs') %>
+    <%- include('../partials/navbar.ejs') %>
+        <!--  BEGIN MAIN CONTAINER  -->
+        <div class="main-container" id="container">
+            <div class="overlay"></div>
+            <div class="search-overlay"></div>
+            <%- include('../partials/menu.ejs') %>
+                <!--  BEGIN CONTENT AREA  -->
+                <div id="content" class="main-content">
+                    <div class="layout-px-spacing">
+                        <!-- CONTENT AREA -->
+
+                        <div class="row layout-top-spacing">
+
+                            <div class="col-md-6">
+                                <%- include('../partials/messege.ejs') %>
+                            </div>
+
+
+                            <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+                                <div class="widget-content widget-content-area br-6"><br><br>
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <div class="col-sm-10">
+                                                <h5>Lista de Categorias</h5>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <a href="/expense/new" type="submit"
+                                                    class="btn waves-effect waves-light btn-primary btn-square">Novo</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <table id="zero-config" class="table dt-table-hover" style="display: inline;" >
+                                        <thead>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Nome</th>                                          
+                                                <th class="no-content">Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% dados.forEach(element => { %>                                     
+                                            <tr>
+                                                <td> <%= element.id %> </td>
+                                                <td> <%= element.name %> </td>                                               
+                                                
+                                                <td>                                                  
+                                                    <form action="/expense/eliminate" style="display: inline;"
+                                                        onsubmit="confirmaDelecao(event, this)" method="post">
+                                                        <input type="hidden" name="id" value="<%= element.id %>">
+                                                        <button style="border: none;" title="Excluir"><i
+                                                                class="fas fa-trash-alt"></i></button>
+                                                    </form>
+                                                </td>
+                                            </tr>  
+                                            <% }) %>                                           
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Id</th>
+                                                <th>Empresa</th>                                              
+                                                <th>Ações</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <script>
+                        function confirmaDelecao(event, form){
+                            event.preventDefault();
+                            var decisao = confirm('Deseja realmente excluir essa categoria ?');
+                            if(decisao){
+                                form.submit();
+                            }
+                        }
+                    </script>
+                    <%- include('../partials/footer.ejs') %>

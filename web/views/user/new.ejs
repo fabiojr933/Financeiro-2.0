@@ -1,0 +1,82 @@
+<%- include('../partials/header.ejs') %>
+    <%- include('../partials/navbar.ejs') %>
+        <!--  BEGIN MAIN CONTAINER  -->
+        <div class="main-container" id="container">
+            <div class="overlay"></div>
+            <div class="search-overlay"></div>
+            <%- include('../partials/menu.ejs') %>
+                <!--  BEGIN CONTENT AREA  -->
+                <div id="content" class="main-content">
+                    <div class="layout-px-spacing">
+                        <!-- CONTENT AREA -->
+
+                        <div class="row layout-top-spacing">
+
+                            <div class="col-md-6">
+                                <%- include('../partials/messege.ejs') %>
+                            </div>
+
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                                <div class="widget widget-content-area br-4">
+                                    <div class="widget-one"><br>
+                                        <div class="card-body">
+                                            <div class="card-body">
+                                                <div class="form-group row">
+                                                    <div class="col-sm-10">
+                                                        <h5>Cadastro de novo usuario</h5>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <a href="/user/index" type="submit"
+                                                            class="btn waves-effect waves-light btn-primary btn-square">Voltar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <form action="/user/create" method="post">
+                                                <div class="row mb-4">
+                                                    <div class="col">
+                                                        <label for="">Nome</label>
+                                                        <input type="text" class="form-control" name="name" required
+                                                            placeholder="Nome">
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="">Email</label>
+                                                        <input type="text" class="form-control" name="email" required
+                                                            placeholder="Email">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-4">
+                                                    <div class="col">
+                                                        <label for="">Senha</label>
+                                                        <input type="password" class="form-control" name="password"
+                                                            required placeholder="Senha">
+                                                    </div>
+                                                    <div class="col">
+                                                        <label for="">Telefone</label>
+                                                        <input type="text" class="form-control" name="telephone"
+                                                            placeholder="Telefone">
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-4">
+                                                    <div class="col">
+                                                        <select class="form-control" name="company_id" required>
+                                                            <option  disabled selected>Selecione uma empresa</option>
+                                                            <% dados.forEach(element=> { %>
+                                                                <option value="<%= element.id %> "><%= element.name %>
+                                                                </option>
+                                                                <% }) %>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <button type="submit" name="time"
+                                                    class="btn btn-primary">Salvar</button>
+                                            </form>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <%- include('../partials/footer.ejs') %>

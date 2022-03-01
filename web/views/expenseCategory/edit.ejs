@@ -1,0 +1,54 @@
+<%- include('../partials/header.ejs') %>
+    <%- include('../partials/navbar.ejs') %>
+        <!--  BEGIN MAIN CONTAINER  -->
+        <div class="main-container" id="container">
+            <div class="overlay"></div>
+            <div class="search-overlay"></div>
+            <%- include('../partials/menu.ejs') %>
+                <!--  BEGIN CONTENT AREA  -->
+                <div id="content" class="main-content">
+                    <div class="layout-px-spacing">
+                        <!-- CONTENT AREA -->
+
+                        <div class="row layout-top-spacing">
+                            
+                        <div class="col-md-6">
+                            <%- include('../partials/messege.ejs') %>
+                        </div>  
+
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-12 layout-spacing">
+                                <div class="widget widget-content-area br-4">
+                                    <div class="widget-one"><br>
+                                        <div class="card-body">
+                                            <div class="card-body">
+                                                <div class="form-group row">
+                                                    <div class="col-sm-10">
+                                                        <h5>Editar Sub Categoria</h5>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <a href="/expenseCategory/index" type="submit"
+                                                            class="btn waves-effect waves-light btn-primary btn-square">Voltar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <form action="/expenseCategory/update" method="post">
+                                                <input type="hidden" name="id" value="<%= dados[0].id %>">
+                                                <div class="row mb-12">
+                                                    <div class="col">
+                                                        <label for="">Nome</label>
+                                                        <input type="text" class="form-control" name="name" required
+                                                            placeholder="Nome" value="<%= dados[0].name %>" >
+                                                    </div>                                                   
+                                                </div> <br>                                              
+                                                <button type="submit" name="time" class="btn btn-primary">Salvar</button>
+                                            </form>
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <%- include('../partials/footer.ejs') %>

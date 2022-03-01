@@ -1,0 +1,22 @@
+<% if(erro.length > 0) { %>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button><strong>      
+          <%= erro %><br>      
+      </strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% } %>
+  
+  <% if(sucesso.length > 0) { %>
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button><strong>     
+        <%= sucesso %><br>    
+     </strong>  
+  </div>
+  <% } %>
